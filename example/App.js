@@ -1,13 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import React from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, ScrollView, Text } from "react-native";
 
 function App() {
   return (
@@ -23,7 +15,7 @@ function App() {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
 });
 
