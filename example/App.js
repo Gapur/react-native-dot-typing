@@ -1,21 +1,47 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { TypingAnimation } from "react-native-dot-typing";
+
+import { colors, statusBarHeight, SCREEN_HEADER_HEIGHT } from "./constants";
 
 function App() {
   return (
-    <SafeAreaView>
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.scrollView}>
-        <Text>Text</Text>
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.screen}>
+      <SafeAreaView style={styles.safearea}>
+        <View style={styles.header}>
+          <Text style={styles.headerTitle}>React Native Typing</Text>
+        </View>
+      </SafeAreaView>
+      <View>
+        <TypingAnimation />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: "#fff",
+  header: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    flexDirection: "row",
+    height: SCREEN_HEADER_HEIGHT,
+    justifyContent: "center",
+  },
+  headerTitle: {
+    fontSize: 17,
+    fontWeight: "500",
+    lineHeight: 23,
+  },
+  safearea: {
+    backgroundColor: colors.white,
+    overflow: "hidden",
+    paddingTop: statusBarHeight,
+    zIndex: 3,
+  },
+  screen: {
+    backgroundColor: colors.azure,
+    flex: 1,
+    flexGrow: 1,
   },
 });
 

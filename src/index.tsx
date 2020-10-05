@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import * as React from "react";
 import { View, ViewStyle, StyleSheet } from "react-native";
 
 interface TypingAnimationProps {
@@ -42,9 +42,9 @@ export function TypingAnimation(props: TypingAnimationProps) {
     dotY = 6,
     dotX = 12,
   } = props;
-  const [animationParams, setAnimationParams] = useState<AnimationParamProps>({ time: 0, y1: 0, y2: 0, y3: 0 });
+  const [animationParams, setAnimationParams] = React.useState<AnimationParamProps>({ time: 0, y1: 0, y2: 0, y3: 0 });
 
-  const frameAnimationRequest = useRef<number>();
+  const frameAnimationRequest = React.useRef<number>();
 
   const getStyles = ({ x, y, radius, bgColor }: DotProps) => ({
     left: x,
@@ -69,7 +69,7 @@ export function TypingAnimation(props: TypingAnimationProps) {
     frameAnimationRequest.current = requestAnimationFrame(animation);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     frameAnimationRequest.current = requestAnimationFrame(animation);
     return () => cancelAnimationFrame(frameAnimationRequest.current as number);
   }, []);
