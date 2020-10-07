@@ -9,17 +9,48 @@ function App() {
     <View style={styles.screen}>
       <SafeAreaView style={styles.safearea}>
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>React Native Typing</Text>
+          <Text style={styles.headerTitle}>React Native Dot Typing</Text>
         </View>
       </SafeAreaView>
-      <View>
-        <TypingAnimation />
+      <View style={styles.container}>
+        <View style={styles.typing}>
+          <TypingAnimation
+            dotRadius={8}
+            dotSpeed={0.05}
+            dotAmplitude={12}
+            dotMargin={14}
+            dotX={0}
+            dotY={0}
+          />
+        </View>
+        <View style={styles.typing}>
+          <TypingAnimation
+            dotRadius={8}
+            dotAmplitude={12}
+            dotMargin={14}
+            dotX={0}
+            dotY={60}
+          />
+        </View>
+        <View style={styles.typing}>
+          <TypingAnimation
+            dotRadius={8}
+            dotSpeed={0.3}
+            dotAmplitude={16}
+            dotMargin={14}
+            dotX={0}
+            dotY={120}
+          />
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginVertical: 20,
+  },
   header: {
     alignItems: "center",
     backgroundColor: colors.white,
@@ -42,6 +73,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.azure,
     flex: 1,
     flexGrow: 1,
+  },
+  typing: {
+    alignItems: "center",
   },
 });
 

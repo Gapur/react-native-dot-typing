@@ -42,7 +42,12 @@ export function TypingAnimation(props: TypingAnimationProps) {
     dotY = 6,
     dotX = 12,
   } = props;
-  const [animationParams, setAnimationParams] = React.useState<AnimationParamProps>({ time: 0, y1: 0, y2: 0, y3: 0 });
+  const [animationParams, setAnimationParams] = React.useState<AnimationParamProps>({
+    time: dotSpeed,
+    y1: dotY + dotAmplitude * Math.sin(0),
+    y2: dotY + dotAmplitude * Math.sin(-1),
+    y3: dotY + dotAmplitude * Math.sin(-2),
+  });
 
   const frameAnimationRequest = React.useRef<number>();
 
