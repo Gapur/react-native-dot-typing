@@ -1,10 +1,8 @@
-<h3 align="center">
-  💬 React Native Dot Typing
-</h3>
-<p align="center">
-  A dot typing animation for your React Native chat app<br/>
-  based on <a href="https://uxdesign.cc/how-you-can-use-simple-trigonometry-to-create-better-loaders-32a573577eb4">simple trigonometry</a> to create better loaders.
-</p>
+# react-native-dot-typing
+
+💬 React Native Dot Typing
+
+A dot typing animation for your React Native chat app based on <a href="https://uxdesign.cc/how-you-can-use-simple-trigonometry-to-create-better-loaders-32a573577eb4">simple trigonometry</a> to create better loaders.
 
 ## Features
 
