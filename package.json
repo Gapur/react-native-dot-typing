@@ -1,7 +1,7 @@
 {
   "name": "react-native-dot-typing",
   "version": "1.0.0",
-  "description": "",
+  "description": "React-rative dot typing animation component",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -11,8 +11,23 @@
     "prettier": "prettier --write \"**/*.+(ts|tsx|scss|json)\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Gapur Kassym <gapur.kassym@gmail.com> (https://github.com/Gapur)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gapur/react-native-dot-typing.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "chat",
+    "animation",
+    "react-native-component",
+    "mobile",
+    "ios",
+    "android"
+  ],
   "devDependencies": {
     "@types/react": "^16.9.50",
     "@types/react-native": "^0.63.23",
