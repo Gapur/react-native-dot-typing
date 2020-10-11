@@ -19,7 +19,7 @@ function App() {
             dotAmplitude={3}
             dotMargin={32}
             dotX={0}
-            dotY={20}
+            dotY={32}
           />
         </View>
       </View>
