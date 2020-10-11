@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
-import { TypingAnimation } from "react-native-dot-typing";
+import { DotTypingAnimation } from "react-native-dot-typing";
 
 import { colors, statusBarHeight, SCREEN_HEADER_HEIGHT } from "./constants";
 
@@ -14,32 +14,12 @@ function App() {
       </SafeAreaView>
       <View style={styles.container}>
         <View style={styles.typing}>
-          <TypingAnimation
-            dotRadius={8}
-            dotSpeed={0.05}
-            dotAmplitude={12}
-            dotMargin={14}
+          <DotTypingAnimation
+            dotRadius={16}
+            dotAmplitude={3}
+            dotMargin={32}
             dotX={0}
-            dotY={0}
-          />
-        </View>
-        <View style={styles.typing}>
-          <TypingAnimation
-            dotRadius={8}
-            dotAmplitude={12}
-            dotMargin={14}
-            dotX={0}
-            dotY={60}
-          />
-        </View>
-        <View style={styles.typing}>
-          <TypingAnimation
-            dotRadius={8}
-            dotSpeed={0.3}
-            dotAmplitude={16}
-            dotMargin={14}
-            dotX={0}
-            dotY={120}
+            dotY={20}
           />
         </View>
       </View>

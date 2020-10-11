@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, ViewStyle, StyleSheet } from "react-native";
 
-interface TypingAnimationProps {
+interface DotTypingAnimationProps {
   style?: ViewStyle;
   dotStyles?: ViewStyle;
   dotColor?: string;
@@ -18,24 +18,22 @@ interface DotProps {
   x: number;
   y: number;
   radius: number;
-  bgColor: string;
-  dotStyles: ViewStyle;
 }
 
 interface AnimationParamProps {
   time: number;
-  y1: number;
-  y2: number;
-  y3: number;
+  radius1: number;
+  radius2: number;
+  radius3: number;
 }
 
-export function TypingAnimation(props: TypingAnimationProps) {
+export function DotTypingAnimation(props: DotTypingAnimationProps) {
   const {
     style = {},
     dotStyles = {},
     dotColor = "black",
     dotMargin = 3,
-    dotAmplitude = 3,
+    dotAmplitude = 2,
     dotSpeed = 0.15,
     show = true,
     dotRadius = 2.5,
@@ -44,31 +42,29 @@ export function TypingAnimation(props: TypingAnimationProps) {
   } = props;
   const [animationParams, setAnimationParams] = React.useState<AnimationParamProps>({
     time: dotSpeed,
-    y1: dotY + dotAmplitude * Math.sin(0),
-    y2: dotY + dotAmplitude * Math.sin(-1),
-    y3: dotY + dotAmplitude * Math.sin(-2),
+    radius1: dotRadius + dotAmplitude * Math.sin(0),
+    radius2: dotRadius + dotAmplitude * Math.sin(-1),
+    radius3: dotRadius + dotAmplitude * Math.sin(-2),
   });
 
   const frameAnimationRequest = React.useRef<number>();
 
-  const getStyles = ({ x, y, radius, bgColor }: DotProps) => ({
+  const getStyles = ({ x, y, radius }: DotProps) => ({
     left: x,
     top: y,
     width: radius * 2,
     height: radius * 2,
     borderRadius: radius,
-    backgroundColor: bgColor,
+    backgroundColor: dotColor,
   });
 
-  const renderDot = (dotProps: DotProps) => (
-    <View style={[styles.container, dotProps.dotStyles, getStyles(dotProps)]} />
-  );
+  const renderDot = (dotProps: DotProps) => <View style={[styles.dot, dotStyles, getStyles(dotProps)]} />;
 
   const animation = () => {
     setAnimationParams((prevAnimationParams) => ({
-      y1: dotY + dotAmplitude * Math.sin(prevAnimationParams.time),
-      y2: dotY + dotAmplitude * Math.sin(prevAnimationParams.time - 1),
-      y3: dotY + dotAmplitude * Math.sin(prevAnimationParams.time - 2),
+      radius1: dotRadius + dotAmplitude * Math.sin(prevAnimationParams.time),
+      radius2: dotRadius + dotAmplitude * Math.sin(prevAnimationParams.time - 1),
+      radius3: dotRadius + dotAmplitude * Math.sin(prevAnimationParams.time - 2),
       time: prevAnimationParams.time + dotSpeed,
     }));
     frameAnimationRequest.current = requestAnimationFrame(animation);
@@ -87,25 +83,25 @@ export function TypingAnimation(props: TypingAnimationProps) {
     <View style={style}>
       {renderDot({
         x: dotX - dotRadius - dotMargin,
-        y: animationParams.y1,
-        radius: dotRadius,
-        dotStyles,
-        bgColor: dotColor,
+        y: dotY - animationParams.radius1,
+        radius: animationParams.radius1,
       })}
-      {renderDot({ x: dotX, y: animationParams.y2, radius: dotRadius, dotStyles, bgColor: dotColor })}
+      {renderDot({
+        x: dotX,
+        y: dotY - animationParams.radius2,
+        radius: animationParams.radius2,
+      })}
       {renderDot({
         x: dotX + dotRadius + dotMargin,
-        y: animationParams.y3,
-        radius: dotRadius,
-        dotStyles,
-        bgColor: dotColor,
+        y: dotY - animationParams.radius3,
+        radius: animationParams.radius3,
       })}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  dot: {
     position: "absolute",
   },
 });
