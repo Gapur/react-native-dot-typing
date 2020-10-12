@@ -82,17 +82,17 @@ export function DotTypingAnimation(props: DotTypingAnimationProps) {
   return (
     <View style={style}>
       {renderDot({
-        x: dotX - dotRadius - dotMargin,
+        x: dotX - dotRadius - dotMargin - animationParams.radius1,
         y: dotY - animationParams.radius1,
         radius: animationParams.radius1,
       })}
       {renderDot({
-        x: dotX,
+        x: dotX - animationParams.radius2,
         y: dotY - animationParams.radius2,
         radius: animationParams.radius2,
       })}
       {renderDot({
-        x: dotX + dotRadius + dotMargin,
+        x: dotX + dotRadius + dotMargin - animationParams.radius3,
         y: dotY - animationParams.radius3,
         radius: animationParams.radius3,
       })}
