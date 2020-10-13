@@ -68,6 +68,10 @@ class Example extends React.Component {
 - **`dotX`** _(Integer)_ - Dot x, the x coordinate of the center dot; default is `12`
 - **`show`** _(Boolean)_ - Visibility, whether the whole animation view is displayed or not; default is `true`
 
+## Acknowledgements
+
+[Adrian Carolli](https://github.com/watadarkstar) ([react-native-typing-animation](https://github.com/watadarkstar/react-native-typing-animation)) inspired me to create this project.
+
 ## License
 
 - [MIT](LICENSE)
